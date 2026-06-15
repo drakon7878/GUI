@@ -1,0 +1,51 @@
+from tkinter import *
+
+def convert():
+    GramsEntry.delete(0 , END)
+    PoundEntry.delete(0 , END)
+    OuncesEntry.delete(0 , END)
+    kilograms = float(KGentry.get())
+    grams = kilograms * 1000
+    pounds = kilograms * 2.2
+    ounces = kilograms * 35.27
+    GramsEntry.insert(0 , grams)
+    PoundEntry.insert(0 , pounds)
+    OuncesEntry.insert(0 , ounces)
+
+screen = Tk()
+screen.title("Weight Converter")
+screen.configure(bg = "white")
+screen.geometry("800x800")
+
+l1 = Label(text = "Weight Converter" , bg = "white" , fg = "black" , width = 30 , height = 2 , font = (25))
+l1.place(x= 300 , y = 50)
+
+KGlabel = Label(text = "Enter your weight in Kg" , bg = "white", fg = "black" , width = 20 , height = 1, font = (15))
+KGlabel.place(x = 100 , y = 150)
+
+KGentry = Entry(width = 20 , bg = "white", fg = "black" , font = (10))
+KGentry.place(x = 400 , y = 150)
+
+
+
+convert = Button(width = 20 , height = 1 , text = "Convert" , bg = "white" , fg = "black" , font = (15) , command = convert)
+convert.place(x = 300 , y = 250)
+
+labelGrams = Label(text = "in grams" , width = 20 , height = 1 , bg = "white" , fg = "black" , font = (15))
+labelGrams.place(x = 100 , y = 300)
+
+labelPound = Label(text = "in pounds" , width = 20 , height = 1 , bg = "white" , fg = "black" , font = (15))
+labelPound.place(x = 300 , y = 300)
+
+labelOunces = Label(text = "in ounces" , width = 20 , height = 1 , bg = "white" , fg = "black" , font = (15))
+labelOunces.place(x = 500 , y = 300)
+
+GramsEntry = Entry(width = 20 , bg = "white" , fg = "black" , font = (15))
+GramsEntry.place(x = 100 , y = 400)
+
+PoundEntry = Entry(width = 20 , bg = "white" , fg = "black" , font = (15))
+PoundEntry.place(x = 300 , y = 400)
+
+OuncesEntry = Entry(width = 20 , bg = "white" , fg = "black" , font = (15))
+OuncesEntry.place(x = 500 , y = 400)
+
