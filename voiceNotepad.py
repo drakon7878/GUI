@@ -24,7 +24,14 @@ def speechToText():
     except sr.UnknownValueError:
         print("Can't recognize your message")
 
-    
+def savetext():
+    file = open("savedText.txt", "a")
+    file.write("\n")
+    file.write(text1.get("1.0" , "end-1c"))
+    file.close()
+
+def cleartext():
+    text1.delete("1.0" , "end-1c")
 
 heading =  Label(text="Speech to Text" , bg = "#6cc291" , fg = "black" , width = 12 , height = 1 , font = ("Arial" , 15))
 heading.place(x = 50 , y =25)
@@ -35,10 +42,10 @@ start.place(x = 50 , y = 100)
 text1 = Text(width = 50 , height = 5, bg = "#dfb562" , fg = "black")
 text1.place(x = 300 , y = 100)
 
-save = Button(text= "Save Text" , fg = "black" , bg ="#5fb1d4" , width = 10 , height = 2 )
+save = Button(text= "Save Text" , fg = "black" , bg ="#5fb1d4" , width = 10 , height = 2 , command=savetext )
 save.place(x =300 , y = 250 )
 
-clear= Button(text= "Clear Text" , fg = "black" , bg ="#ed5d6b" , width = 10 , height = 2 )
+clear= Button(text= "Clear Text" , fg = "black" , bg ="#ed5d6b" , width = 10 , height = 2, command=cleartext )
 clear.place(x =400 , y = 250 )
 
 
